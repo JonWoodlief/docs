@@ -7,6 +7,8 @@ product: NVIDIA Air NGC
 
 NVIDIA Air uses NGC API keys for authenticating API requests. This page covers Air-specific authentication details. For general information about NGC API keys, see the {{<exlink url="https://docs.nvidia.com/ngc/latest/ngc-user-guide.html#ngc-api-keys" text="NGC API Keys documentation">}}.
 
+For the full API reference, see the {{<exlink url="https://air-ngc.nvidia.com/api/" text="NVIDIA Air API documentation">}}.
+
 ## API Key Types
 
 NGC supports two types of API keys:
@@ -31,7 +33,7 @@ When generating a key, select **NVIDIA Air** from the services list to grant Air
 Include your API key in the `Authorization` header:
 
 ```bash
-curl -X GET "https://air-ngc.nvidia.com/api/v1/simulation/" \
+curl -X GET "https://air-ngc.nvidia.com/api/v3/simulations/" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -52,10 +54,9 @@ Roles are assigned to users in your NGC organization and apply to Personal API K
 | `air-admin` | Administrative access to all Air resources |
 | `air-demo-manager` | Can manage Demo Marketplace content |
 | `air-image-uploader` | Can upload custom images |
-| `air-image-publisher` | Can publish images for org-wide use |
+| `air-image-publisher` | Can publish images for public availability |
 | `air-image-sharer` | Can create cross-org image sharing links |
 | `air-instructor` | Can create and manage training sessions |
-| `air-fleet-manager` | Can manage private fleets |
 
 ### Scopes
 
@@ -71,7 +72,7 @@ Scopes are the permissions that the Air API checks to authorize requests. For Pe
 | `air:simulation_start_stop` | Start and stop simulations |
 | `air:image_read` | View published and org images |
 | `air:image_write` | Upload and edit images |
-| `air:image_publish` | Publish images for org-wide availability |
+| `air:image_publish` | Publish images for public availability (not restricted to any org) |
 | `air:image_sharing` | Create cross-org image share links |
 | `air:marketplace_demo_read` | View and interact with marketplace demos |
 | `air:marketplace_demo_write` | Create and edit marketplace demos |

@@ -4,22 +4,17 @@ author: NVIDIA
 weight: 40
 product: NVIDIA Air NGC
 ---
-{{%notice note%}}
-The information on this page reflects the workflows for the new Air UI. The legacy UI is being deprecated. {{<link title="Custom Topology (Legacy)" text="View documentation for the legacy UI">}}
-{{%/notice%}}
-
 ## The Drag-and-Drop Topology Builder
 
-One way to create custom simulations is with the built-in topology builder, which provides a drag-and-drop editor to design any custom network. To get started, navigate to [https://air.nvidia.com/simulations](https://air.nvidia.com/simulations).
+One way to create custom simulations is with the built-in topology builder, which provides a drag-and-drop editor to design any custom network. To get started, navigate to [https://air-ngc.nvidia.com/simulations](https://air-ngc.nvidia.com/simulations).
 
 1. Select **Create Simulation**.
 2. Provide a name for your simulation.
 3. Select **Blank Canvas** as the type.
-4. (Optional) Assign the simulation to an [Organization](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/).
-5. (Optional) Add a [ZTP script](#ztp-scripts) to the simulation:
+4. (Optional) Add a [ZTP script](#ztp-scripts) to the simulation:
    1. Select **Apply ZTP Template**.
    2. Enter your ZTP script. A default script is prefilled to help get you started.
-6. Click **Create**.
+5. Click **Create**.
 
 {{<img src="/images/guides/nvidia-air/CreateSimulation.png" alt="" width="800px">}}
 
@@ -416,24 +411,23 @@ You can customize RAM (in MB) with the `memory` option:
 
 ### Examples
 
-Labs in the [Demo Marketplace](https://air.nvidia.com/demos) are maintained with external GitLab repositories. Here you can find the `topology.dot` or `topology.json` file used to build the lab and use it as a reference. To access the files, select **Documentation** on any lab in the Demo Marketplace. It will direct you to the demo's GitLab repository, where you can download the file used for the demo topology.
+Labs in the [Demo Marketplace](https://air-ngc.nvidia.com/demos) are maintained with external GitLab repositories. Here you can find the `topology.dot` or `topology.json` file used to build the lab and use it as a reference. To access the files, select **Documentation** on any lab in the Demo Marketplace. It will direct you to the demo's GitLab repository, where you can download the file used for the demo topology.
 
 You can also launch a copy of a lab in the Demo Marketplace and then export the JSON file.
 
 ### Import a Topology
 
-To import and upload a DOT or JSON topology file to Air, navigate to [air.nvidia.com/simulations](https://air.nvidia.com/simulations).
+To import and upload a DOT or JSON topology file to Air, navigate to [air-ngc.nvidia.com/simulations](https://air-ngc.nvidia.com/simulations).
 
 1. Click **Create Simulation**.
 2. Provide a name for the simulation.
 3. Select your desired filetype.
 4. Upload the file to the UI.
-5. (Optional) Assign the simulation to an [organization](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations/).
-6. (Optional) Add a [ZTP script](#ztp-scripts). Alternately, you can apply a ZTP script within the file.
+5. (Optional) Add a [ZTP script](#ztp-scripts). Alternately, you can apply a ZTP script within the file.
      1. Select **Apply ZTP Template**.
      2. Enter your ZTP script. A default script is prefilled to help you get started.
-7. (Optional) Click **Advanced** and provide an out-of-band management server configuration script that executes on the `oob-mgmt-server` when the simulation starts.
-8. Click **Create**.
+6. (Optional) Click **Advanced** and provide an out-of-band management server configuration script that executes on the `oob-mgmt-server` when the simulation starts.
+7. Click **Create**.
 
 {{<img src="/images/guides/nvidia-air/ImportJSON.png" alt="" >}}
 <br>
@@ -441,9 +435,7 @@ To import and upload a DOT or JSON topology file to Air, navigate to [air.nvidia
 Air redirects you to the [topology builder](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/#the-drag-and-drop-topology-builder) with your custom topology created. You can continue to make adjustments as necessary.
 
 ### Export a Topology
-You can export the topology for any existing simulation as a JSON file. From the **Topology** tab, select **Export Simulation** to export the topology file.
-
-{{<img src="/images/guides/nvidia-air/ExportSimulation.png" alt="" >}} 
+You can export the topology for any existing simulation as a JSON file. From the **Topology** tab, click the **Export** icon in the toolbar to download the topology file. 
 
 ### Storage Limits
 
@@ -519,7 +511,7 @@ The following topology defines two nodes (`node-1` and `node-2`) connected to ea
 {{< /tab >}}
 {{< /tabs >}}
 
-For additional schemas, refer to the [API documentation](https://air.nvidia.com/api/#/v2/v2_simulations_import_create).
+For additional schemas, refer to the [API documentation](https://air-ngc.nvidia.com/api/#/Simulations/api_v3_simulations_import_create).
 
 {{< expand "Import Instructions" >}}
 
@@ -613,7 +605,7 @@ with pathlib.Path('/path/to/topology.json').open('r') as topology_file:
 
 ## Export a Topology through the API
 
-You can export existing simulations into a JSON representation using the API. Refer to the [API documentation](https://air.nvidia.com/api/#/v2/v2_simulations_export_retrieve) for additional schema details.
+You can export existing simulations into a JSON representation using the API. Refer to the [API documentation](https://air-ngc.nvidia.com/api/#/Simulations/api_v3_simulations_export_retrieve) for additional schema details.
 
 {{< expand "Export Instructions" >}}
 

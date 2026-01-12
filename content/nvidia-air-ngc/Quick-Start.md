@@ -29,7 +29,7 @@ After you log in, Air displays a list of simulations associated with your accoun
 
 To create a simulation, you can either:
 - Build a custom topology; see [Custom Topology](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Custom-Topology/).
-- Load a pre-configured demo from the [Demo Marketplace](https://air.nvidia.com/demos) and customize it; see [Pre-Built Demos](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Pre-Built-Demos).
+- Load a pre-configured demo from the [Demo Marketplace](https://air-ngc.nvidia.com/demos) and customize it; see [Pre-Built Demos](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Pre-Built-Demos).
 
 ### Navigate Simulations
 
@@ -55,7 +55,7 @@ Enable services to create external connections to your simulation to support int
 
 To add a new service to your simulation:
 
-1. In a loaded simulation, select **Services**&nbsp;<span aria-label="and then">></span> **New Service**.
+1. In a loaded simulation, select the **Services** tab, then click **+ New Service**.
 
 {{<img src="/images/guides/nvidia-air/ServicesDropdown.png" alt="" >}}
 
@@ -78,7 +78,7 @@ To enable SSH in the `oob-mgmt-server`, click **Enable SSH**. This option is onl
 
 Rebuilding a node restores the node to its original or default configuration. If you create the node from a demo or other snapshot, rebuilding it reverts the node to its original configuration. Resetting a node performs a hard reboot to the node.
 
-From a loaded simulation, select a node to view its node properties. Click **Advanced Options**&nbsp;<span aria-label="and then">></span> **Actions** to rebuild or reset the node.
+From a loaded simulation, click the hamburger menu on a node to view rebuild and reset options.
 
 {{<img src="/images/guides/nvidia-air/RebuildReset.png" alt=""  width="450px" >}}
 <br>
@@ -88,35 +88,14 @@ You can also rebuild all nodes in a simulation simultaneously by clicking the {{
 ### Edit Simulations
 
 You can edit important attributes of a simulation with the {{<img src="/images/guides/nvidia-air/Edit.png" alt="" width="22px" >}} **Edit** button in the **Topology** tab.
-- **Name** is the simulation name. Simulations can share the same name. Air assigns a unique identifier to each simulation to differentiate between each one.
-- **Organization** is the organization assigned to the simulation. This attribute assigns the exact simulation to an organization. The simulation that is assigned to the organization is not a copy or clone of the simulation. This means that each user with appropriate permissions has access to the simulation and can edit it. For more information, refer to [Organizations](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations).
+- **Simulation Name** is the simulation name. Simulations can share the same name. Air assigns a unique identifier to each simulation to differentiate between each one.
 - **Sleep date** is when the simulation goes into sleep mode automatically; Air saves the state of the simulation and stores it to free up account resources.
-- **Expiration date** is when Air deletes the simulation automatically.
 
-### Share Simulations
+{{<img src="/images/guides/nvidia-air/EditSim.png" alt="" width="400px">}}
 
-Sharing a simulation allows other users to view and interact with it. When sharing a simulation, you can choose to give users read-only access, which means they cannot modify the simulation (for example, by deleting it or assigning it to an organization). Users with read-only access have access to node consoles, where they can run commands to modify the simulation. To share a simulation with a group of users, see [Organizations](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations).
+## API Authentication
 
-To share a simulation:
-
-1. From the **Topology** tab, click {{<img src="/images/guides/nvidia-air/ManageUsersButton.png" alt="" width="22px" >}} **Manage Users**.
-2. Enter the email addresses of the users with whom you want to share the simulation.
-3. (Optional) Select **Read Only** to limit permissions to read-only access.
-4. Click **Add User**.
-5. Click **Close**.
-
-{{<img src="/images/guides/nvidia-air/ManageUsers.png" alt="" width="600px">}}
-<br>
-<br>
-Users can now view the simulation from their [Simulations](https://air.nvidia.com/simulations) list. The user does not receive any notification that they have access to the simulation. <!--why not if they entered their email?--> 
-
-## API Tokens
-
-API tokens allow you to execute authenticated activities using the NVIDIA Air API or SDK. To view your API tokens, click your username in the UI and select **Settings**.
-
-To generate an API token, fill in the **Name** and **Expiration Date** fields, then click **Create**. Save your token somewhere safe. You will not be able to view it again.
-
-{{<img src="/images/guides/nvidia-air/APIToken.png" alt="" width="1000px">}}
+To authenticate with the NVIDIA Air API, use NGC API keys. For detailed information about generating and using API keys, see {{<link title="API Authentication">}}.
 
 ## SSH Keys
 
@@ -127,7 +106,7 @@ To add an SSH key, fill in the **Name** and **Public Key** fields, then select *
 {{<img src="/images/guides/nvidia-air/SSHKey.png" alt="" width="1000px">}}
 <br>
 <br>
-You can revoke or delete both API tokens and SSH keys if you no longer need them, or if they become compromised.
+You can delete SSH keys if you no longer need them, or if they become compromised.
 
 ## Resource Budgets
 
@@ -137,13 +116,7 @@ The number of simulation resources allotted to a user is tied to the user's acco
 - 650 GB storage
 - 4 running simulations
 
-Air allocates NVIDIA employees the following resource budget:
-- 100 vCPUs
-- 100 GB memory
-- 1 TB storage
-- 5 running simulations
-
-[Organizations](https://docs.nvidia.com/networking-ethernet-software/nvidia-air/Organizations) have the largest resource budgets and can accommodate large simulations. The default resource budget for an organization is:
+NGC organizations have the largest resource budgets and can accommodate large simulations. The default resource budget for an organization is:
 - 300 vCPUs
 - 300 GB memory
 - 3 TB storage
